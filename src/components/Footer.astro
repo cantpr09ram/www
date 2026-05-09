@@ -1,36 +1,25 @@
 ---
-import { NAME, GITHUB, EMAIL } from "../consts"
+import { execSync } from "node:child_process";
+import { NAME } from "../consts";
+
 const today = new Date();
+const revision = (() => {
+	try {
+		return execSync("git rev-parse --short HEAD", {
+			encoding: "utf8",
+		}).trim();
+	} catch {
+		return "unknown";
+	}
+})();
 ---
 
-<footer class="text-xs pl-2 mt-auto pt-6">
-    <div class="flex gap-4 mt-4">
-		<a 
-			href={`https://github.com/${GITHUB}`}
-			target="_blank" 
-			class="text-[var(--app-text)] hover:text-[var(--app-text-muted)] hover:underline"
-			rel="noopener noreferrer"
-		>
-			<p>GitHub</p>
-		</a>
-		<a 
-			href={`mailto:${EMAIL}`}
-			target="_blank" 
-			class="text-[var(--app-text)] hover:text-[var(--app-text-muted)] hover:underline"
-			rel="noopener noreferrer"
-		>
-			<p>Email</p>
-		</a>
-		<a 
-			href="/rss.xml" 
-			target="_blank" 
-			class="text-[var(--app-text)] hover:text-[var(--app-text-muted)] hover:underline"
-			rel="noopener noreferrer"
-		>
-			<p>RSS</p>
-		</a>
-	</div>
-	<p class="pt-2 text-xs">&copy; {today.getFullYear()} {NAME}. All rights reserved.</p>
-	<p class="pt-2 text-xs">This Too Shall Pass</p>
-	<p class="text-xs">251</p>
+<footer
+	class="mt-auto flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1 pt-6 text-center text-xs"
+>
+	<p>&copy; {today.getFullYear()} {NAME}. All rights reserved.</p>
+	<p>This Too Shall Pass</p>
+	<p>251</p>
+	<p>{revision}</p>
+	
 </footer>
