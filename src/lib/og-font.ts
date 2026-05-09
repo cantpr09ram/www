@@ -46,23 +46,23 @@ export async function loadFonts(): Promise<Font[]> {
 	if (cache) return cache;
 	try {
 		const [reg, bold, cjk] = await Promise.all([
-			fetchFont("EB Garamond", 400),
-			fetchFont("EB Garamond", 700),
-			fetchFont("Noto Serif TC", 400),
+			fetchFont("TASA Explorer", 400),
+			fetchFont("TASA Explorer", 700),
+			fetchFont("Iansui", 400),
 		]);
 		cache = [
-			{ name: "EB Garamond", data: reg, weight: 400, style: "normal" },
-			{ name: "EB Garamond", data: bold, weight: 700, style: "normal" },
-			{ name: "Noto Serif TC", data: cjk, weight: 400, style: "normal" },
+			{ name: "TASA Explorer", data: reg, weight: 400, style: "normal" },
+			{ name: "TASA Explorer", data: bold, weight: 700, style: "normal" },
+			{ name: "Iansui", data: cjk, weight: 400, style: "normal" },
 		];
 	} catch (error) {
 		// Keep OG generation working in offline/CI environments where google fonts are blocked.
 		console.warn("Failed to fetch remote OG fonts. Falling back to a local system font.", error);
 		const fallback = await loadLocalFallbackFont();
 		cache = [
-			{ name: "EB Garamond", data: fallback, weight: 400, style: "normal" },
-			{ name: "EB Garamond", data: fallback, weight: 700, style: "normal" },
-			{ name: "Noto Serif TC", data: fallback, weight: 400, style: "normal" },
+			{ name: "TASA Explorer", data: fallback, weight: 400, style: "normal" },
+			{ name: "TASA Explorer", data: fallback, weight: 700, style: "normal" },
+			{ name: "Iansui", data: fallback, weight: 400, style: "normal" },
 		];
 	}
 	return cache;
