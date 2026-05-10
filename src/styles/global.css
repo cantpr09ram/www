@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=EB+Garamond:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Iansui&family=JetBrains+Mono:wght@400;500;700&family=TASA+Explorer:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 @import "./admonition.css";
 @import "katex/dist/katex.min.css";
@@ -24,7 +24,7 @@
 	--sh-jsxliterals: #7aa2f7;
 	--sh-property: #73daca;
 	--sh-entity: #e0af68;
-	--layout-main-max: 80ch;
+	--layout-main-max: 60ch;
 	--layout-article-max: 880px;
 	--layout-narrow-max: 42ch;
 	--layout-anchor-max: 860px;
@@ -322,8 +322,8 @@ input[type="email"] {
 }
 
 @theme {
-	--font-sans: "EB Garamond", "Noto Serif TC";
-	--font-mono: "Courier Prime", "Noto Serif TC", monospace;
+	--font-sans: "TASA Explorer", "Iansui", sans-serif;
+	--font-mono: "JetBrains Mono", "Iansui", monospace;
 }
 
 .mono-date {

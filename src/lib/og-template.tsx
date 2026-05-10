@@ -3,7 +3,7 @@ interface OgTemplateProps {
 	description: string;
 }
 
-const fontFamily = "EB Garamond, Noto Serif TC";
+const fontFamily = "TASA Explorer, Iansui";
 
 export function OgTemplate({ title, description }: OgTemplateProps) {
 	const truncTitle = title.length > 60 ? `${title.slice(0, 57)}…` : title;
