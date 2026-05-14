@@ -9,34 +9,27 @@ import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 import rehypeAdmonitions from "./src/plugins/rehype-admonitions.mjs";
 
-import cloudflare from "@astrojs/cloudflare";
-
 // https://astro.build/config
 export default defineConfig({
-  site: "https://cantpr09ram.cc",
-
-  integrations: [
-      mdx({
-          remarkPlugins: [remarkMath],
-          rehypePlugins: [rehypeKatex, rehypeAdmonitions],
-      }), 
-      sitemap(), 
-      react()],
-
-  markdown: {
-      syntaxHighlight: "shiki",
-      shikiConfig: {
-          themes: {
-              light: "github-light",
-              dark: "github-dark",
-          },
-      },
-      rehypePlugins: [rehypeAdmonitions],
+	site: "https://cantpr09ram.cc",
+	integrations: [
+		mdx({
+			remarkPlugins: [remarkMath],
+			rehypePlugins: [rehypeKatex, rehypeAdmonitions],
+		}), 
+		sitemap(), 
+		react()],
+	markdown: {
+		syntaxHighlight: "shiki",
+		shikiConfig: {
+			themes: {
+				light: "github-light",
+				dark: "github-dark",
+			},
+		},
+		rehypePlugins: [rehypeAdmonitions],
 	},
-
-  vite: {
-      plugins: [tailwindcss()],
+	vite: {
+		plugins: [tailwindcss()],
 	},
-
-  adapter: cloudflare(),
 });
