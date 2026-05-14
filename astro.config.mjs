@@ -11,7 +11,7 @@ import rehypeAdmonitions from "./src/plugins/rehype-admonitions.mjs";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://cantpr09ram.github.io",
+	site: "https://cantpr09ram.cc",
 	integrations: [
 		mdx({
 			remarkPlugins: [remarkMath],
