@@ -1,5 +1,5 @@
 import { useEffect, useRef, type CSSProperties } from "react";
-import createGlobe from "cobe";
+import createGlobe, { type Marker } from "cobe";
 
 export type GlobeMarker = {
 	location: [number, number];
@@ -80,7 +80,7 @@ export default function EarthGlobe({
 			return;
 		}
 
-		const globeMarkers = markers
+		const globeMarkers: Marker[] = markers
 			.filter(
 				(marker) =>
 					Array.isArray(marker?.location) &&
@@ -88,7 +88,16 @@ export default function EarthGlobe({
 					typeof marker.location[0] === "number" &&
 					typeof marker.location[1] === "number",
 			)
-			.map(({ location, size, color, id }) => ({ location, size, color, id }));
+			.map(({ location, size, color, id }) => {
+				const marker: Marker = { location, size: size ?? 0.04 };
+				if (color) {
+					marker.color = color;
+				}
+				if (id) {
+					marker.id = id;
+				}
+				return marker;
+			});
 
 		const showFallback = () => {
 			if (fallback) {
@@ -197,8 +206,12 @@ export default function EarthGlobe({
 			);
 			const dpr = Math.min(window.devicePixelRatio || 1, 2);
 			const palette = getPalette();
-			const darkLevel = Number.isFinite(dark) ? dark : palette.dark;
-			const brightness = Number.isFinite(mapBrightness) ? mapBrightness : 6;
+			const darkLevel =
+				typeof dark === "number" && Number.isFinite(dark) ? dark : palette.dark;
+			const brightness =
+				typeof mapBrightness === "number" && Number.isFinite(mapBrightness)
+					? mapBrightness
+					: 6;
 
 			try {
 				globe?.destroy();
