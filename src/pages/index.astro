@@ -20,12 +20,12 @@ const description = me.data.description ?? SITE_DESCRIPTION;
 		<BaseHead title={title} description={description} />
 	</head>
 	<BaseBody
-		bodyClass="antialiased tracking-tight"
-		shellClass="min-h-dvh flex flex-col pt-8 pb-6 px-2 md:px-8 md:pt-8 md:pb-8 bg-[var(--app-bg)] text-[var(--app-text)]"
-		mainClass="flex-1 max-w-[var(--layout-main-max)] mx-auto w-full flex flex-col"
+		bodyClass="ds-body"
+		shellClass="home-shell"
+		mainClass="home-main"
 		showFooter
 	>
-		<section class="flex flex-1 flex-col justify-center pb-[10dvh]">
+		<section class="home-content">
 			<div class="pl-3 pb-2 space-y-5">
 				<div class="prose max-w-none">
 					<Content />

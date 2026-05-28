@@ -326,11 +326,110 @@ input[type="email"] {
 	--font-mono: "JetBrains Mono", "Iansui", monospace;
 }
 
+@theme inline {
+	--color-app-surface: var(--app-bg);
+	--color-app-text: var(--app-text);
+	--color-app-text-soft: var(--app-text-soft);
+	--color-app-text-muted: var(--app-text-muted);
+	--color-app-heading: var(--app-text-heading);
+	--color-app-code-bg: var(--code-bg);
+	--color-app-code-border: var(--code-border);
+	--color-app-code-inline: var(--code-inline-bg);
+	--container-main: var(--layout-main-max);
+	--container-article: var(--layout-article-max);
+	--container-narrow: var(--layout-narrow-max);
+	--container-anchor: var(--layout-anchor-max);
+}
+
 .mono-date {
 	font-family: var(--font-mono);
 }
 
 @layer components {
+	.ds-body {
+		@apply antialiased tracking-tight font-sans;
+	}
+
+	.page-shell {
+		@apply min-h-screen flex flex-col pt-10 md:pt-8 p-8 bg-app-surface text-app-text;
+	}
+
+	.home-shell {
+		@apply min-h-dvh flex flex-col pt-8 pb-6 px-2 md:px-8 md:pt-8 md:pb-8 bg-app-surface text-app-text;
+	}
+
+	.page-main {
+		@apply max-w-main mx-auto w-full flex flex-col flex-1;
+	}
+
+	.home-main {
+		@apply flex-1 max-w-main mx-auto w-full flex flex-col;
+	}
+
+	.home-content {
+		@apply flex flex-1 flex-col pt-5;
+	}
+
+	.article-frame {
+		@apply mx-auto w-full max-w-article px-1 md:px-3 text-app-text-soft py-5;
+	}
+
+	.article-header {
+		@apply mb-4 py-2 text-left leading-none;
+	}
+
+	.article-title {
+		@apply mb-2 text-3xl font-bold text-app-heading;
+	}
+
+	.content-link {
+		@apply underline-offset-4 hover:underline;
+	}
+
+	.muted-link {
+		@apply text-app-text-muted hover:text-app-text hover:underline;
+	}
+
+	.blog-list-section {
+		@apply pl-2 py-5;
+	}
+
+	.blog-list {
+		@apply space-y-1;
+	}
+
+	.post-row {
+		@apply flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-md px-1 py-0.5;
+	}
+
+	.post-title {
+		@apply min-w-0 flex-1 text-lg font-semibold text-app-heading;
+	}
+
+	.post-date {
+		@apply shrink-0 text-xs text-app-text-muted;
+	}
+
+	.theme-toggle-panel {
+		@apply rounded-full bg-app-surface p-1;
+	}
+
+	.theme-toggle-button {
+		@apply rounded-full p-2 text-app-text transition-colors hover:bg-zinc-200/50 dark:hover:bg-zinc-700/50;
+	}
+
+	.footer-meta {
+		@apply mt-auto flex flex-wrap items-center justify-center gap-x-3 gap-y-1 pt-6 text-center text-xs;
+	}
+
+	.footer-meta > * {
+		@apply inline-flex min-h-4 items-center leading-none;
+	}
+
+	.footer-revision {
+		@apply gap-1 text-app-text-muted underline-offset-2 hover:text-app-text hover:underline;
+	}
+
 	.cactus-link {
 		@apply underline underline-offset-2 hover:decoration-2 hover:decoration-neutral-500 dark:hover:decoration-neutral-300;
 	}

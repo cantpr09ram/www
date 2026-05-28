@@ -20,11 +20,11 @@ const getPostTransitionName = (id: string) =>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<BaseBody showHeader showFooter>
-			<section class="pl-2 py-5">
+			<section class="blog-list-section">
 				{
 					series.map((item) => (
 						<h1
-							class="mb-4 text-2xl font-semibold text-[var(--app-text-heading)]"
+							class="mb-4 text-2xl font-semibold text-app-heading"
 							data-series-title={item.slug}
 							hidden
 						>
@@ -32,21 +32,21 @@ const getPostTransitionName = (id: string) =>
 						</h1>
 					))
 				}
-				<ul class="space-y-1" data-post-list="all">
+				<ul class="blog-list" data-post-list="all">
 					{
 					posts.map((post) => (
 						<li data-series-slug={post.data.series?.slug ?? ""}>
-							<div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-md px-1 py-0.5">
-								<div class="min-w-0 flex-1 text-lg font-semibold text-[var(--app-text-heading)]">
+							<div class="post-row">
+								<div class="post-title">
 									<a
 										href={`/blog/${post.id}/`}
-										class="underline-offset-4 hover:underline"
+										class="content-link"
 										transition:name={getPostTransitionName(post.id)}
 									>
 										{post.data.title}
 									</a>
 								</div>
-								<p class="shrink-0 text-xs text-[var(--app-text-muted)]">
+								<p class="post-date">
 									<FormattedDate date={post.data.pubDate} />
 								</p>
 							</div>
@@ -57,22 +57,22 @@ const getPostTransitionName = (id: string) =>
 				{
 					series.map((item) => (
 						<ul
-							class="space-y-1"
+							class="blog-list"
 							data-post-list={item.slug}
 							hidden
 						>
 							{item.posts.map((post) => (
 								<li>
-									<div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-md px-1 py-0.5">
-										<div class="min-w-0 flex-1 text-lg font-semibold text-[var(--app-text-heading)]">
+									<div class="post-row">
+										<div class="post-title">
 											<a
 												href={`/blog/${post.id}/`}
-												class="underline-offset-4 hover:underline"
+												class="content-link"
 											>
 												{post.data.title}
 											</a>
 										</div>
-										<p class="shrink-0 text-xs text-[var(--app-text-muted)]">
+										<p class="post-date">
 											<FormattedDate date={post.data.pubDate} />
 										</p>
 									</div>
@@ -81,7 +81,7 @@ const getPostTransitionName = (id: string) =>
 						</ul>
 					))
 				}
-				<p class="text-sm text-[var(--app-text-muted)]" data-empty-series hidden>
+				<p class="text-sm text-app-text-muted" data-empty-series hidden>
 					No posts in this series.
 				</p>
 			</section>
@@ -108,7 +108,7 @@ const getPostTransitionName = (id: string) =>
 				} else {
 					filter.removeAttribute("aria-current");
 				}
-				filter.classList.toggle("text-[var(--app-text)]", isActive);
+				filter.classList.toggle("text-app-text", isActive);
 				filter.classList.toggle("font-medium", isActive);
 			}
 
