@@ -22,28 +22,28 @@ const titleTransitionName = `post-title-${slug.replace(/[^a-zA-Z0-9_-]/g, "-")}`
 
   <BaseBody showHeader showFooter>
         <article>
-          <div class="mx-auto w-full max-w-[var(--layout-article-max)] px-1 md:px-3 text-[var(--app-text-soft)] py-5">
-            <div class="mb-4 py-2 text-left leading-none">
+          <div class="article-frame">
+            <div class="article-header">
               <h1
-                class="mb-2 text-3xl font-bold text-[var(--app-text-heading)]"
+                class="article-title"
                 transition:name={titleTransitionName}
               >
                 {title}
               </h1>
-              <p class="mb-2 text-[var(--app-text-muted)]">{description}</p>
+              <p class="mb-2 text-app-text-muted">{description}</p>
               {
                 seriesContext && (
-                  <p class="mb-2 text-sm text-[var(--app-text-muted)]">
+                  <p class="mb-2 text-sm text-app-text-muted">
                     <a
                       href={`/blog/?series=${seriesContext.series.slug}`}
-                      class="font-medium text-[var(--app-text)] underline-offset-4 hover:underline"
+                      class="content-link font-medium text-app-text"
                     >
                       {seriesContext.series.title}
                     </a>
                   </p>
                 )
               }
-              <div class="mb-2 text-xs text-[var(--app-text-muted)]">
+              <div class="mb-2 text-xs text-app-text-muted">
                 <FormattedDate date={pubDate} />
                 {
                   updatedDate && (

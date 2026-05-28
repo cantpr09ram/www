@@ -1,8 +1,11 @@
 ---
+import { GitPullRequest } from "@lucide/astro";
 import { execSync } from "node:child_process";
 import { NAME } from "../consts";
 
 const today = new Date();
+const commitBaseUrl =
+	"https://github.com/cantpr09ram/cantpr09ram.github.io/commit";
 const revision = (() => {
 	try {
 		return execSync("git rev-parse --short HEAD", {
@@ -12,14 +15,25 @@ const revision = (() => {
 		return "unknown";
 	}
 })();
+const revisionUrl =
+	revision === "unknown" ? undefined : `${commitBaseUrl}/${revision}`;
 ---
 
-<footer
-	class="mt-auto flex flex-wrap items-baseline justify-center gap-x-3 gap-y-1 pt-6 text-center text-xs"
->
+<footer class="footer-meta">
 	<p>&copy; {today.getFullYear()} {NAME}. All rights reserved.</p>
 	<p>This Too Shall Pass</p>
 	<p>251</p>
-	<p>{revision}</p>
-	
+	{
+		revisionUrl ? (
+			<a class="footer-revision" href={revisionUrl} aria-label={`Git commit ${revision}`}>
+				<GitPullRequest size={12} aria-hidden="true" />
+				<span>{revision}</span>
+			</a>
+		) : (
+			<p class="footer-revision">
+				<GitPullRequest size={12} aria-hidden="true" />
+				<span>{revision}</span>
+			</p>
+		)
+	}
 </footer>
