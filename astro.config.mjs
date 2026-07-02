@@ -14,6 +14,7 @@ export default defineConfig({
 	site: "https://cantpr09ram.cc",
 	integrations: [
 		mdx({
+			gfm: true,
 			remarkPlugins: [remarkMath],
 			rehypePlugins: [rehypeKatex, rehypeAdmonitions],
 		}), 

@@ -20,7 +20,7 @@ const getPostTransitionName = (id: string) =>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 	<BaseBody showHeader showFooter>
-			<section class="blog-list-section">
+			<section class="page-section">
 				{
 					series.map((item) => (
 						<h1
@@ -40,7 +40,7 @@ const getPostTransitionName = (id: string) =>
 								<div class="post-title">
 									<a
 										href={`/blog/${post.id}/`}
-										class="content-link"
+										class="content-link text-sm md:text-base"
 										transition:name={getPostTransitionName(post.id)}
 									>
 										{post.data.title}

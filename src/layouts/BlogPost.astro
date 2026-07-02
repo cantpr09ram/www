@@ -30,10 +30,9 @@ const titleTransitionName = `post-title-${slug.replace(/[^a-zA-Z0-9_-]/g, "-")}`
               >
                 {title}
               </h1>
-              <p class="mb-2 text-app-text-muted">{description}</p>
               {
                 seriesContext && (
-                  <p class="mb-2 text-sm text-app-text-muted">
+                  <p class="mb-2 text-app-text-muted">
                     <a
                       href={`/blog/?series=${seriesContext.series.slug}`}
                       class="content-link font-medium text-app-text"

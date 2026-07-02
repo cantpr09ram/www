@@ -228,7 +228,7 @@ pre code span {
 }
 
 .prose p {
-	@apply my-5 font-medium leading-relaxed;
+	@apply my-3 text-sm md:text-base font-medium leading-relaxed;
 }
 
 .prose h1 {
@@ -252,21 +252,21 @@ pre code span {
 }
 
 .prose ul {
-	@apply list-disc pl-6;
+	@apply list-disc pl-6 text-sm md:text-base;
 }
 
 .prose ol {
-	@apply list-decimal pl-6;
+	@apply list-decimal pl-6 text-sm md:text-base;
 }
 
 .prose blockquote {
-	@apply border-y border-gray-200 dark:border-gray-700 pl-4 pr-2 py-2 leading-relaxed break-words;
+	@apply border-y border-gray-200 dark:border-gray-700 pl-4 pr-2 py-2 text-sm md:text-base leading-relaxed break-words;
 }
 
 .prose > :first-child {
 	/* Override removing top margin, causing layout shift */
-	margin-top: 1.25em;
-	margin-bottom: 1.25em;
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
 }
 
 /* Remove Safari input shadow on mobile */
@@ -278,6 +278,7 @@ input[type="email"] {
 }
 
 .prose table {
+	@apply text-sm md:text-base;
 	border-collapse: collapse;
 	text-align: left;
 	display: block;
@@ -342,7 +343,7 @@ input[type="email"] {
 }
 
 .mono-date {
-	font-family: var(--font-mono);
+	@apply font-mono text-sm;
 }
 
 @layer components {
@@ -354,20 +355,8 @@ input[type="email"] {
 		@apply min-h-screen flex flex-col pt-10 md:pt-8 p-8 bg-app-surface text-app-text;
 	}
 
-	.home-shell {
-		@apply min-h-dvh flex flex-col pt-8 pb-6 px-2 md:px-8 md:pt-8 md:pb-8 bg-app-surface text-app-text;
-	}
-
 	.page-main {
 		@apply max-w-main mx-auto w-full flex flex-col flex-1;
-	}
-
-	.home-main {
-		@apply flex-1 max-w-main mx-auto w-full flex flex-col;
-	}
-
-	.home-content {
-		@apply flex flex-1 flex-col pt-5;
 	}
 
 	.article-frame {
@@ -383,14 +372,14 @@ input[type="email"] {
 	}
 
 	.content-link {
-		@apply underline-offset-4 hover:underline;
+		@apply text-sm md:text-base underline-offset-4 hover:underline;
 	}
 
 	.muted-link {
 		@apply text-app-text-muted hover:text-app-text hover:underline;
 	}
 
-	.blog-list-section {
+	.page-section {
 		@apply pl-2 py-5;
 	}
 
@@ -407,7 +396,7 @@ input[type="email"] {
 	}
 
 	.post-date {
-		@apply shrink-0 text-xs text-app-text-muted;
+		@apply shrink-0 text-app-text-muted;
 	}
 
 	.theme-toggle-panel {

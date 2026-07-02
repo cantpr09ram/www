@@ -5,11 +5,6 @@ categories: []
 description: 'Finding Order in Chaos'
 slug: google-encoded-polyline
 ---
-
-import { RouteMap } from './route-map.tsx'
-
-export const taipeiMarathon = "ycywCsw}dVAjHc@hIG`GHzKGfZ]hMMbAi@pAIn@Dd@n@|AH`AI`HDlGQhHEfXBhGK`BHzCMzHDrIY~`@AtQ_Dla@SzGTRv@PZ@RQnBkFv@wArBoFf@wAXyA`C_F|@iCnAeB\\CxDfApIfEd@l@}B|GeBjGuCjIcCbJo@xGa@zI[nD{@jGaCxIsArEsBfEqOqCaBOiWsEwAe@{AKcFmA}FcB[QGUBwANwAvAuCz@_E`@c@d]J`CDvE`@~@GZ}@hA}NpA}GY_Ag@_@qL_C{IwAqAa@uJiBmPgG_HsBiDwAoAw@{A[kFg@mCGcL?q_@m@mCLmNpBwHJuCOuJkBoG{AuDa@qDcAyIwAwAo@e@e@eBeDq@_Cu@iBwAs@yDSw@YqDyEgAmBu@{Dc@_JPmGR{AIuABiCl@sVImEBwCn@iV@yEKmCJ{BEkBVuEGkFHsI`@sON_YdAkKf@uDpA_INmCIaMgEiRSeB?uBdAyF|@{AvA_BjCwBlHiDnGkBfFSjBA`BP|@OxB@jC^fJdCzBTvSw@zT_D`Kg@jDa@lCqAhBkBdA{Bd@}BHgCMqAW{@cG{N}No\\uEuL{CwGoBoDm@yB@gB^yAnAgBfCoBv@eAbCoGp@aCFm@NsHdCmLHkDWoPeAmS}@yIuCcO}@uB{CwEyKmJsA_DUaDX_CvAmGhAqBjD{BnE}B~CwBpEsEnB{AnA]zBDaCCoAXmAhBc@tA_C~BgAxAiAx@cI`CaAPWIKg@Pq@tC}F~GmHpDsBTe@K[SEgDbC{DxDqClDuB|DeB|Do@nCg@vCy@jD[rC@bAP`A`@n@rGnFzFlFn@z@bBjDb@rAz@`DNrAj@~AlBdNNxGV~A\\`IKbB`@pLO`CwC|NIfBFlC`@jClBxF@d@rBdClHpHfEtFtGfN|B|MVfAj@fAp@rE`@vA@xBbAdGvF`b@LlFc@bFo@|A}@r@I`@d@IFU_FfBeLtAuF`@eADs@Y}AOiUtB]Fw@n@uAd@oCBmEpBwEd@kF_B_JuEeC}@{HcCmDe@aD`@gAxAUJuIXsATq@d@qA~B_@jAAt@bAjCtBtCvA|CpBtCrCvH~@vDLSLiGSoAI{@@kSDc@RUjANl@d@f@gA\\NhB@dCNdATvKl@rFBv@L\\r@XFdHu@pA@pNoBnLaArCc@|EOlH{@dBEhANtCQ`IwAdAAp@L\\n@PtBBpBOxHIxI{@`yAFRPBzCIXGn@{@fDL"
-
 最近在做這個 [網站](https://run.cantpr09ram.cc/)。簡單來說他的功能就是從 Strava API 獲得我跑步的資料然後用 
 [json](https://github.com/cantpr09ram/running_page/blob/main/src/static/activities.json) 的形式存起來，
 然後透過網站展示這些數據，未來我可能會做一個 AI agent 來做輔助訓練 
@@ -116,14 +111,3 @@ $$
 
 我們把 (25.03757, 121.56298) 輸入到 [google maps](https://www.google.com/maps?q=25.03757,121.56298) 可以看到是在仁愛路四段 台北市政府前廣場附近，
 沒錯，上面的路線是台北馬拉松的路線
-
-<RouteMap
-  polyline={taipeiMarathon}
-  client:load
-/>
-
-如果你只是想知道 polyline 是如何運作的，到這裡就說完了，接下來是一些不一樣的主題
-
-> [!NOTE]
-> 我覺得這段值得擴充成一篇獨立的文章，所以我先刪掉了。等我寫好我會補上 link
-

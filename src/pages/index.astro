@@ -1,17 +1,10 @@
 ---
-import { getEntry, render } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import BaseBody from "../layouts/BaseBody.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
-const me = await getEntry("pages", "me");
+import { SITE_TITLE } from "../consts";
 
-if (!me) {
-	throw new Error("Missing src/content/pages/me.mdx");
-}
-
-const { Content } = await render(me);
-const title = me.data.title ?? SITE_TITLE;
-const description = me.data.description ?? SITE_DESCRIPTION;
+const title = SITE_TITLE;
+const description = "whoami";
 ---
 
 <!doctype html>
@@ -19,17 +12,50 @@ const description = me.data.description ?? SITE_DESCRIPTION;
 	<head>
 		<BaseHead title={title} description={description} />
 	</head>
-	<BaseBody
-		bodyClass="ds-body"
-		shellClass="home-shell"
-		mainClass="home-main"
-		showFooter
-	>
-		<section class="home-content">
-			<div class="pl-3 pb-2 space-y-5">
-				<div class="prose max-w-none">
-					<Content />
-				</div>
+	<BaseBody showFooter>
+		<section class="page-section">
+			<div class="prose max-w-none">
+				<p>cantpr09ram</p>
+
+				<p>
+					A part-timer by day, <a href="https://run.cantpr09ram.cc">runner</a> in the
+					mornings or evenings, aspiring craftsman in the margins. Feel free to
+					read my <a href="/blog">writing</a>, explore my <a
+						href="https://github.com/cantpr09ram">projects</a
+					>, or say <a href="mailto:me@cantpr09ram.cc">hello</a>.
+				</p>
+
+				<p>
+					Designed by Probability in <a href="/404">Taiwan</a> Product of <a
+						href="/404">Taiwan</a
+					>.
+				</p>
+
+				<p>Now</p>
+				<ul>
+					<li>waiting to start military service, find some part-time job.</li>
+					<li>
+						play <a
+							href="https://www.rockstargames.com/reddeadredemption2"
+							>Red Dead Redemption 2</a
+						>.
+					</li>
+					<li>
+						current subscription: <a href="https://netflix.com"
+							><s>Netflix</s></a
+						>, <a href="https://www.primevideo.com/">Prime Video</a>, <a
+							href="https://chatgpt.com"><s>ChatGPT</s></a
+						>, <a href="https://cursor.com/">Cursor</a>, <a
+							href="https://claude.ai">Claude</a
+						>, <a href="https://spotify.com">Spotify</a>
+					</li>
+					<li>
+						learning <a href="https://rust-lang.org">rust</a>, 
+						<a href="https://spring.io/">Spring Boot</a>, 
+						Français.
+					</li>
+					<li>weather is too hot for running, so try to swim more.</li>
+				</ul>
 			</div>
 		</section>
 	</BaseBody>
