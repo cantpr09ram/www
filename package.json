@@ -27,7 +27,7 @@
 		"@lucide/astro": "^1.33.0",
 		"@resvg/resvg-js": "^2.6.2",
 		"@tailwindcss/vite": "^4.3.3",
-		"astro": "^7.2.8",
+		"astro": "^7.3.2",
 		"cobe": "^2.0.1",
 		"consola": "^3.4.2",
 		"katex": "^0.18.4",
@@ -37,7 +37,7 @@
 		"rehype-katex": "^7.0.1",
 		"remark-math": "^6.0.0",
 		"satori": "^0.33.3",
-		"sharp": "^0.35.3",
+		"sharp": "^0.35.4",
 		"tailwindcss": "^4.3.3"
 	},
 	"devDependencies": {
