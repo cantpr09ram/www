@@ -1,6 +1,10 @@
 packages:
   - .
 
+overrides:
+  fflate@^0.7.0: 0.7.5
+  katex@^0.16.0: 0.18.2
+
 allowBuilds:
   '@tailwindcss/oxide': true
   esbuild: false
