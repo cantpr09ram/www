@@ -160,6 +160,36 @@ pre::-webkit-scrollbar {
 	border-color: var(--code-border);
 }
 
+.pele-diagram {
+	margin: 1.25rem 0;
+	overflow-x: auto;
+}
+
+.pele-diagram svg {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin-inline: auto;
+}
+
+.pele {
+	--pele-bg: transparent;
+	--pele-fg: var(--app-text);
+	--pele-muted: var(--app-text-muted);
+	--pele-line: var(--app-text);
+	--pele-surface: var(--code-inline-bg);
+	--pele-surface-alt: color-mix(in srgb, var(--app-text) 6%, var(--app-bg));
+	--pele-border: color-mix(in srgb, var(--app-text) 28%, var(--app-bg));
+	--pele-accent: #205ea6;
+	--pele-font: var(--font-sans);
+	--pele-font-mono: var(--font-mono);
+	--pele-radius: 6px;
+}
+
+:root.dark .pele {
+	--pele-accent: #8eb6ff;
+}
+
 .prose pre.astro-code {
 	border-color: var(--code-border);
 }

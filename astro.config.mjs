@@ -9,6 +9,7 @@ import react from "@astrojs/react";
 import rehypeCallouts from "rehype-callouts";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import { rehypePele } from "./src/lib/rehype-pele.ts";
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,11 +20,15 @@ export default defineConfig({
 			gfm: true,
 			remarkPlugins: [remarkMath],
 			rehypePlugins: [
+				rehypePele,
 				rehypeKatex,
 				[rehypeCallouts, { theme: "github" }],
 			],
 		}),
-		syntaxHighlight: "shiki",
+		syntaxHighlight: {
+			type: "shiki",
+			excludeLangs: ["math", "mermaid"],
+		},
 		shikiConfig: {
 			themes: {
 				light: "github-light",
