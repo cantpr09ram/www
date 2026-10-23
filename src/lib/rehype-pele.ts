@@ -60,22 +60,38 @@ function renderDiagram(source: string, idPrefix: string): HastElement {
 	return svgNode as HastElement;
 }
 
+function isParent(node: HastContent): node is HastContent & HastParent {
+	return "children" in node && Array.isArray(node.children);
+}
+
+function isMermaidBlock(node: HastContent): node is HastElement {
+	if (
+		!isElement(node) ||
+		node.tagName !== "pre" ||
+		node.children.length !== 1
+	) {
+		return false;
+	}
+	const code = node.children[0];
+	return (
+		!!code &&
+		isElement(code) &&
+		code.tagName === "code" &&
+		classNames(code).includes("language-mermaid")
+	);
+}
+
 function replaceMermaid(node: HastParent, nextId: () => string) {
 	for (const child of node.children) {
-		if (!isElement(child)) continue;
-		const code = child.children[0];
-		if (
-			child.tagName === "pre" &&
-			child.children.length === 1 &&
-			code &&
-			isElement(code) &&
-			code.tagName === "code" &&
-			classNames(code).includes("language-mermaid")
-		) {
-			const source = textContent(code).trim();
+		// MDX keeps JSX components as `mdxJsxFlowElement` (and other non-element
+		// parents). Recurse into every parent so nested fences are still rendered.
+		if (!isParent(child)) continue;
+		if (isMermaidBlock(child)) {
+			const code = child.children[0];
+			if (!code || !isElement(code)) continue;
 			child.tagName = "figure";
 			child.properties = { className: ["pele-diagram"] };
-			child.children = [renderDiagram(source, nextId())];
+			child.children = [renderDiagram(textContent(code).trim(), nextId())];
 			continue;
 		}
 		replaceMermaid(child, nextId);

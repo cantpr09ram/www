@@ -11,10 +11,11 @@
 		"preview": "astro preview",
 		"astro": "astro",
 		"check": "astro check",
+		"test": "node --experimental-strip-types --test src/lib/rehype-pele.test.ts",
 		"lint": "biome lint .",
 		"format": "biome format --write .",
 		"format:check": "biome format .",
-		"validate": "pnpm run format:check && pnpm run lint && pnpm run check && pnpm audit --prod",
+		"validate": "pnpm run format:check && pnpm run lint && pnpm run test && pnpm run check && pnpm audit --prod",
 		"ci": "pnpm run validate && pnpm run build",
 		"new-post": "tsx scripts/create-post.ts"
 	},
