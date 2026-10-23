@@ -1,0 +1,29 @@
+---
+title: 'Diagrams'
+description: 'Mermaid diagrams rendered with Pele.'
+pubDate: 'Jan 01 1970'
+isdrift: true
+---
+
+Fenced code blocks tagged `mermaid` render as diagrams.
+
+## Flowchart
+
+```mermaid
+flowchart LR
+  Write[Write a post] --> Build{Build}
+  Build -->|ok| Publish[Publish]
+  Build -->|fix| Write
+```
+
+## Sequence diagram
+
+```mermaid
+sequenceDiagram
+  participant Author
+  participant Pele
+  participant Page
+  Author->>Pele: mermaid source
+  Pele-->>Page: SVG
+  Page-->>Author: diagram
+```
